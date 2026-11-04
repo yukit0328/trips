@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>福岡・熊本ドライブ旅 旅のしおり</title>
+<style>
+:root{
+  --ink:#17212b;--muted:#5b6875;--line:#d9e0e6;--paper:#fff;--bg:#f3f6f8;
+  --accent:#245a73;--accent2:#1c7c54;--soft:#eaf2f5;--warn-bg:#fff8e8;--warn:#c48a1a;
+  --alert-bg:#fff0ee;--alert:#bd5146;--ok-bg:#ecf7f1;--ok:#1c7c54;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP","Yu Gothic",Meiryo,sans-serif;line-height:1.65;font-size:15px}
+main{max-width:860px;margin:auto;background:var(--paper);padding:16px 16px 96px}
+section{scroll-margin-top:12px}
+h1{font-size:clamp(24px,6.5vw,38px);line-height:1.25;margin:.2em 0}
+h2{font-size:21px;border-bottom:3px solid var(--accent);padding-bottom:6px;margin:1.8em 0 .7em}
+h3{font-size:17px;margin:1.4em 0 .5em;padding-left:10px;border-left:4px solid var(--accent)}
+p{margin:.4em 0 .8em}
+a{color:#145c83;overflow-wrap:anywhere}
+.lead{color:var(--muted);font-size:15px}
+.small{font-size:12.5px;color:var(--muted)}
+.hero{padding:20px 18px;border-radius:16px;background:linear-gradient(135deg,#dfecf1,#f7f9fa);margin-bottom:14px}
+.kicker{color:var(--accent);font-weight:700;letter-spacing:.06em;font-size:12px}
+.pill{display:inline-block;background:#fff;border:1px solid #c9d8e0;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:700;color:var(--accent);margin:2px 4px 2px 0}
+.badge{display:inline-block;border-radius:6px;padding:1px 7px;font-size:11.5px;font-weight:700;vertical-align:middle;margin-left:4px}
+.b-fix{background:var(--ok-bg);color:var(--ok);border:1px solid #b9e0cb}
+.b-cand{background:var(--soft);color:var(--accent);border:1px solid #c9d8e0}
+.b-chk{background:var(--warn-bg);color:#8a5d00;border:1px solid #efd59a}
+.b-rec{background:#245a73;color:#fff}
+.note{background:var(--warn-bg);border-left:4px solid var(--warn);padding:11px 13px;border-radius:8px;margin:12px 0}
+.alert{background:var(--alert-bg);border-left:4px solid var(--alert);padding:12px 14px;border-radius:8px;margin:12px 0}
+.okbox{background:var(--ok-bg);border-left:4px solid var(--ok);padding:11px 13px;border-radius:8px;margin:12px 0}
+.toc{border:1px solid var(--line);border-radius:14px;padding:12px;margin:12px 0 18px;background:#fbfcfd}
+.toc strong{display:block;margin-bottom:8px}
+.toc ol{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.toc a{display:flex;align-items:center;min-height:46px;padding:8px 10px;border-radius:10px;background:#fff;border:1px solid var(--line);text-decoration:none;color:var(--ink);font-weight:700;font-size:14px}
+.toc a span{color:var(--accent);margin-right:6px;font-size:12px}
+table{border-collapse:collapse;width:100%;font-size:14px;margin:8px 0 14px}
+th,td{border-bottom:1px solid var(--line);padding:8px 7px;text-align:left;vertical-align:top}
+th{background:#f0f4f6;font-size:13px}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+/* timeline */
+.tl{list-style:none;margin:8px 0 16px;padding:0}
+.tl li{position:relative;padding:10px 0 12px 74px;border-bottom:1px dashed var(--line)}
+.tl .t{position:absolute;left:0;top:10px;width:66px;font-weight:800;color:var(--accent);font-size:14px;line-height:1.3}
+.tl .ttl{font-weight:800;font-size:15.5px}
+.tl .m{font-size:13.5px;color:var(--muted);margin:2px 0 6px}
+.tl li.key .ttl{color:var(--alert)}
+.tl li.drive .t::after{content:"🚗";display:block;font-size:13px}
+.btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:4px;min-height:40px;padding:7px 12px;border-radius:10px;border:1px solid #b8c9d2;background:#fff;color:#14506b;text-decoration:none;font-size:13px;font-weight:700;line-height:1.2}
+.btn.cal{border-color:#9bc7ae;color:#14633f;background:#f4fbf7}
+.btn.route{background:#245a73;color:#fff;border-color:#245a73}
+.btn.na{background:#f2f2f2;color:#777;border-color:#ddd;cursor:default}
+.btn:active{transform:scale(.98)}
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin:8px 0 14px}
+.card{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+.card .ph{position:relative;height:150px;background:#e7ecef}
+.card .ph img{width:100%;height:150px;object-fit:cover;display:block}
+.card .ph .cap{position:absolute;left:0;bottom:0;right:0;background:rgba(0,0,0,.55);color:#fff;font-size:11px;padding:3px 8px}
+.card .noph{height:72px;display:flex;align-items:center;justify-content:center;flex-direction:column;background:repeating-linear-gradient(45deg,#f1f4f6,#f1f4f6 8px,#e9eef1 8px,#e9eef1 16px);color:#6b7a86;font-size:12px;text-align:center;padding:6px}
+.card .body{padding:12px;flex:1;display:flex;flex-direction:column}
+.card .name{font-weight:800;font-size:15.5px;margin-bottom:2px}
+.card dl{margin:6px 0;font-size:13px;display:grid;grid-template-columns:4.6em 1fr;gap:2px 6px}
+.card dt{color:var(--muted)}
+.card dd{margin:0}
+.card p{font-size:13.5px;margin:4px 0 6px}
+.card .btns{margin-top:auto;padding-top:6px}
+.card.rec{border:2px solid var(--accent)}
+/* checklist */
+.cl{list-style:none;margin:6px 0;padding:0}
+.cl li{display:flex;align-items:flex-start;gap:10px;padding:9px 6px;border-bottom:1px solid var(--line);font-size:14.5px}
+.cl input{width:24px;height:24px;flex:0 0 24px;margin:0;accent-color:var(--accent2)}
+.cl label{flex:1;cursor:pointer}
+.done-wrap{margin-top:8px;border:1px dashed #b9e0cb;border-radius:10px;padding:6px 10px;background:#f8fcfa}
+.done-wrap summary{cursor:pointer;font-weight:700;color:var(--ok);font-size:13.5px;padding:6px 0}
+.done-wrap .cl li label{color:#7a8a94;text-decoration:line-through}
+.cl .sub-items{margin:4px 0 0;padding-left:1.1em;font-size:13.5px;color:var(--muted)}
+.cl .sub-items li{display:list-item;border:0;padding:1px 0;font-size:13.5px}
+.grp{font-weight:800;margin:14px 0 2px;font-size:14.5px;color:var(--accent)}
+/* map */
+.gmap{position:relative;width:100%;height:380px;border-radius:12px;overflow:hidden;border:1px solid var(--line);margin:8px 0;background:#eef2f4}
+.gmap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.mapfallback{display:none;padding:14px;background:#f5f8fa;border:1px solid var(--line);border-radius:12px}
+.legend{list-style:none;padding:0;margin:6px 0;display:grid;gap:4px;font-size:13.5px}
+.legend li span{display:inline-flex;width:22px;height:22px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:12px;align-items:center;justify-content:center;margin-right:6px}
+.num-icon{background:var(--accent);color:#fff;border:2px solid #fff;border-radius:50%;width:26px!important;height:26px!important;display:flex!important;align-items:center;justify-content:center;font-weight:800;font-size:13px;box-shadow:0 1px 4px rgba(0,0,0,.35)}
+/* calculator */
+.calc{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fbfcfd}
+.calc input[type=time]{font-size:18px;padding:8px;border-radius:8px;border:1px solid #b8c9d2;min-height:44px}
+.calc table td:first-child{white-space:nowrap}
+.verdict-ok{color:var(--ok);font-weight:800}
+.verdict-ng{color:var(--alert);font-weight:800}
+.verdict-mid{color:#8a5d00;font-weight:800}
+/* bottom nav */
+.bnav{position:fixed;left:0;right:0;bottom:0;z-index:1000;background:rgba(255,255,255,.97);border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+.bnav a{flex:1;text-align:center;text-decoration:none;color:var(--accent);font-weight:800;font-size:12px;padding:8px 2px;min-height:44px;border-radius:8px}
+.bnav a:active{background:var(--soft)}
+.plan-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0 4px;position:sticky;top:0;z-index:5;background:var(--paper);padding:6px 0}
+.ptab{min-height:54px;border:2px solid var(--accent);border-radius:12px;background:#fff;color:var(--accent);font-weight:800;font-size:15px;line-height:1.25;cursor:pointer;font-family:inherit}
+.ptab span{display:block;font-size:12px;font-weight:700}
+.ptab[aria-selected="true"]{background:var(--accent);color:#fff}
+.plan-panel{scroll-margin-top:72px}
+table.cmp td:first-child{white-space:nowrap;color:var(--muted);font-size:13px}
+table.cmp th a{color:inherit}
+.rec-pts{background:var(--ok-bg);border-radius:10px;padding:8px 10px 6px;margin:6px 0 4px}
+.rec-h{font-size:12px;font-weight:800;color:var(--ok);letter-spacing:.04em}
+.rec-pts ul{margin:3px 0 0;padding-left:1.15em;font-size:13.5px}
+.rec-pts li{margin:2px 0}
+.src li{font-size:12.5px;margin:4px 0}
+footer{border-top:1px solid var(--line);margin-top:28px;padding-top:12px;color:var(--muted);font-size:12px}
+@media (min-width:700px){main{padding:28px 32px 100px}}
+.sub{scroll-margin-top:12px}
+details.cands{border:1px solid var(--line);border-radius:12px;margin:12px 0;background:#fbfcfd;scroll-margin-top:12px}
+details.cands>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:48px;padding:10px 14px;font-weight:800;font-size:15px;color:var(--accent)}
+details.cands>summary::-webkit-details-marker{display:none}
+details.cands>summary .sum-h{font-size:12px;font-weight:700;color:var(--muted);white-space:nowrap}
+details.cands>summary .sum-h::after{content:" ▼"}
+details.cands[open]>summary .sum-h{visibility:hidden}
+details.cands[open]>summary{border-bottom:1px solid var(--line)}
+details.cands>*:not(summary){margin-left:10px;margin-right:10px}
+details.cands>.grid{margin-bottom:12px}
+@media (min-width:700px){.toc ol{grid-template-columns:repeat(3,1fr)}}
+
+@media print{.bnav{display:none}body{background:#fff}main{padding:10mm}.card{break-inside:avoid}}
+</style>
+</head>
+<body data-tag="福岡・熊本ドライブ旅 しおり">
+<main>
+
+<header class="hero" id="top">
+  <div class="kicker">ROAD TRIP BOOKLET · 2026.11.6–11.7 · 1泊2日</div>
+  <h1>福岡・熊本<br>ドライブ旅</h1>
+  <p class="lead">2026年11月6日（金）〜11月7日（土）</p>
+  <p><span class="pill">湯らっくす</span><span class="pill">熊本グルメ</span><span class="pill">糸島ドライブ</span></p>
+</header>
+
+<nav class="toc" aria-label="目次">
+  <strong>目次</strong>
+  <ol>
+    <li><a href="#overview"><span>1</span>旅行概要・ルート</a></li>
+    <li><a href="#day1"><span>2</span>DAY 1：熊本</a></li>
+    <li><a href="#yulax"><span>3</span>湯らっくす</a></li>
+    <li><a href="#day2"><span>4</span>DAY 2：糸島</a></li>
+    <li><a href="#info"><span>5</span>注意点・リンク</a></li>
+  </ol>
+</nav>
+
+<div class="note"><strong>作成中：</strong>福岡から湯らっくすまでの<strong>道中の立ち寄り先</strong>は、行きたいところリストから選んで追加する予定です（11/6に営業していない場所は外します）。</div>
+
+<section id="overview">
+<h2>1. 旅行概要・ルート</h2>
+<table>
+<tr><th style="width:6.5em">集合</th><td>11/6（金）<strong>9:00 福岡空港</strong>（車で迎え）</td></tr>
+<tr><th>1日目</th><td>福岡空港 → 九州道 → 熊本（<strong>湯らっくす</strong>がメイン） → 夜に福岡のホテルへ戻る</td></tr>
+<tr><th>宿泊</th><td>Hotel Mei 福岡天神（福岡市中央区春吉2-16-19）<br><span class="small">館内駐車場の掲載なし → 近くのコインパーキングを利用。<strong>24時を過ぎる場合はホテルへ事前連絡</strong>が必要。</span></td></tr>
+<tr><th>2日目</th><td>ホテル → <strong>糸島</strong>ドライブ → 18:00ごろ福岡市内で解散</td></tr>
+</table>
+<div class="btns"><a class="btn route" data-leg="福岡空港 国内線ターミナル|湯らっくす 熊本市中央区本荘町722|Hotel Mei 福岡天神 福岡市中央区春吉2-16-19">🚗 1日目の全ルート</a><a class="btn route" data-leg="Hotel Mei 福岡天神 福岡市中央区春吉2-16-19|桜井二見ヶ浦|伊都菜彩|Hotel Mei 福岡天神 福岡市中央区春吉2-16-19">🚗 2日目の全ルート</a></div>
+<p class="small">福岡空港 → 湯らっくすは、九州道を使って車で約1時間45分〜2時間が目安（渋滞なし）。</p>
+</section>
+
+<section id="day1">
+<h2>2. DAY 1｜11月6日（金） 福岡 → 熊本 → 福岡</h2>
+<ul class="tl">
+<li class="key"><div class="t">9:00</div><div class="ttl">福岡空港で合流</div><div class="m">国内線ターミナルの車寄せで乗車。</div>
+  <div class="btns"><a class="btn" data-q="福岡空港 国内線ターミナル">📍 地図</a><a class="btn cal" data-cal='{"t":"福岡空港で合流","s":"2026-11-06T09:00","e":"2026-11-06T09:15","l":"福岡空港 国内線ターミナル","d":"車で迎え"}'>📅 カレンダー</a></div></li>
+<li class="drive"><div class="t">9:15<br>〜</div><div class="ttl">九州道で熊本へ</div><div class="m">太宰府IC → 熊本IC。途中の休憩は基山PA・広川SAなど。</div>
+  <div class="btns"><a class="btn route" data-dest="湯らっくす 熊本市中央区本荘町722">🚗 湯らっくすへのルート</a></div></li>
+<li><div class="t">（追加予定）</div><div class="ttl">道中の立ち寄り先</div><div class="m">行きたいところリストから選んで、ここに追加します。</div></li>
+<li class="key"><div class="t">昼すぎ<br>〜夕方</div><div class="ttl">湯らっくす（メイン）</div><div class="m">サウナと深水風呂をたっぷり。館内に食事処もあるので、お昼をここで食べるのもあり。<a href="#yulax">施設の情報</a></div>
+  <div class="btns"><a class="btn" data-q="湯らっくす 熊本市中央区本荘町722">📍 地図</a><a class="btn route" data-dest="湯らっくす 熊本市中央区本荘町722">🚗 ルート</a></div></li>
+<li><div class="t">夕方<br>〜夜</div><div class="ttl">熊本で夕ごはん</div><div class="m">熊本ラーメン、馬刺し、太平燕（タイピーエン）など。食べてから福岡へ戻ると、着くのは夜遅め。</div>
+  <div class="btns"><a class="btn" data-q="熊本ラーメン 熊本市中央区">🍜 熊本ラーメン</a><a class="btn" data-q="馬刺し 熊本市中央区">🐴 馬刺し</a></div></li>
+<li class="drive"><div class="t">夜</div><div class="ttl">福岡のホテルへ戻る（約1時間45分）</div><div class="m">夜の高速は眠くなりやすいので、途中で1回休憩。<strong>24時を過ぎそうならホテルに連絡</strong>。</div>
+  <div class="btns"><a class="btn route" data-leg="湯らっくす 熊本市中央区本荘町722|Hotel Mei 福岡天神 福岡市中央区春吉2-16-19">🚗 ホテルへのルート</a><a class="btn" data-q="駐車場 福岡市中央区春吉2丁目">🅿 ホテル周辺の駐車場</a></div></li>
+</ul>
+</section>
+
+<section id="yulax">
+<h2>3. 湯らっくす</h2>
+<div class="card rec"><div class="body">
+  <div class="name">湯らっくす <span class="badge b-fix">メイン</span></div>
+  <dl>
+    <dt>住所</dt><dd>熊本市中央区本荘町722（JR平成駅から徒歩5〜9分）</dd>
+    <dt>営業</dt><dd>24時間（8:00〜10:00は清掃で入浴不可）・無休の掲載あり <span class="badge b-chk">要確認</span></dd>
+    <dt>料金</dt><dd>平日900円・土日祝1,000円（入浴のみ、2026年9月時点の記事）</dd>
+    <dt>駐車場</dt><dd>無料・約180台</dd>
+  </dl>
+  <div class="rec-pts"><div class="rec-h">おすすめポイント</div><ul>
+    <li>頭上から水が打ちつける「MADMAXボタン」付きの深水風呂</li>
+    <li>水をかけると蒸気が噴き上がる「大噴火瞑想サウナ 大阿蘇」</li>
+    <li>アウフグースのイベントがあるクラシックサウナ</li>
+  </ul></div>
+  <p class="small">タオルは有料。メンテナンスで休館することがあるため、出発前に公式サイトのお知らせを確認してください。</p>
+  <div class="btns"><a class="btn" href="https://www.yulax.co.jp/" target="_blank" rel="noopener">🌐 公式サイト</a><a class="btn" data-q="湯らっくす 熊本市中央区本荘町722">📍 地図</a></div>
+</div></div>
+</section>
+
+<section id="day2">
+<h2>4. DAY 2｜11月7日（土） 糸島ドライブ</h2>
+<p class="lead">18:00ごろに福岡市内で解散するので、16:30〜17:00には糸島を出発します。</p>
+<ul class="tl">
+<li class="drive"><div class="t">10:00</div><div class="ttl">ホテルを出発（糸島まで約40〜50分）</div><div class="m">都市高速 → 西九州道で前原ICへ。</div></li>
+<li><div class="t">11:00<br>〜12:00</div><div class="ttl">桜井二見ヶ浦（夫婦岩と白い鳥居）</div><div class="m">海の中の夫婦岩と白い鳥居。糸島でいちばん有名な景色。</div>
+  <div class="btns"><a class="btn" data-q="桜井二見ヶ浦">📍 地図</a><a class="btn route" data-dest="桜井二見ヶ浦">🚗 ルート</a></div></li>
+<li><div class="t">12:00<br>〜14:00</div><div class="ttl">海沿いのカフェでランチ</div><div class="m">二見ヶ浦から芥屋方面への海沿い（サンセットロード）にカフェが並びます。土曜は混むので早めに。</div>
+  <div class="btns"><a class="btn" data-q="糸島 海沿い カフェ ランチ">☕ カフェを探す</a></div></li>
+<li><div class="t">14:00<br>〜15:30</div><div class="ttl">芥屋の大門 または 白糸の滝</div><div class="m">海の洞窟の景色なら芥屋の大門、山の紅葉なら白糸の滝。</div>
+  <div class="btns"><a class="btn" data-q="芥屋の大門">📍 芥屋の大門</a><a class="btn" data-q="白糸の滝 糸島">📍 白糸の滝</a></div></li>
+<li><div class="t">15:30<br>〜16:30</div><div class="ttl">伊都菜彩でお土産</div><div class="m">糸島の野菜・果物・お菓子が集まる大きな直売所。</div>
+  <div class="btns"><a class="btn" data-q="伊都菜彩">📍 地図</a></div></li>
+<li class="drive key"><div class="t">16:30<br>〜18:00</div><div class="ttl">福岡市内へ戻って解散</div><div class="m">土曜夕方の都市高速は混むことがあるので、時間に余裕をもって出発。</div></li>
+</ul>
+<p class="small">各スポットの営業時間・駐車場は当日に確認してください。<span class="badge b-chk">要確認</span></p>
+</section>
+
+<section id="info">
+<h2>5. 注意点・リンク</h2>
+<ul>
+<li>湯らっくすはタオル有料。手ぶらなら現金かカードを用意。</li>
+<li>1日目の帰りは夜の高速道路。眠くなったら無理せず休憩する。</li>
+<li>ホテルに駐車場はない掲載のため、近くのコインパーキングを利用（最大料金ありを選ぶ）。</li>
+</ul>
+</section>
+
+<footer>作成：2026年11月4日｜営業時間・料金・道路状況は変わることがあります。出発前と当日に各公式案内で確認してください。「要確認」は最新情報を確認できなかった項目です。</footer>
+</main>
+<script>
+(function(){
+  var E = encodeURIComponent;
+  var TAG = document.body.getAttribute('data-tag') || '旅のしおり';
+  function gdate(s){ return s.replace(/-/g,'').replace(':','') + '00'; }
+  document.querySelectorAll('[data-cal]').forEach(function(a){
+    try{
+      var c = JSON.parse(a.getAttribute('data-cal'));
+      a.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + E(c.t)
+        + '&dates=' + gdate(c.s) + '/' + gdate(c.e) + '&ctz=Asia/Tokyo'
+        + (c.l ? '&location=' + E(c.l) : '') + '&details=' + E((c.d ? c.d + '\n' : '') + '（' + TAG + '）');
+      a.target = '_blank'; a.rel = 'noopener';
+    }catch(e){ a.classList.add('na'); a.textContent = 'カレンダー情報エラー'; }
+  });
+  document.querySelectorAll('[data-dest]').forEach(function(a){
+    a.href = 'https://www.google.com/maps/dir/?api=1&destination=' + E(a.getAttribute('data-dest')) + '&travelmode=driving';
+    a.target = '_blank'; a.rel = 'noopener';
+  });
+  document.querySelectorAll('[data-q]').forEach(function(a){
+    a.href = 'https://www.google.com/maps/search/?api=1&query=' + E(a.getAttribute('data-q'));
+    a.target = '_blank'; a.rel = 'noopener';
+  });
+  document.querySelectorAll('[data-leg]').forEach(function(a){
+    var p = a.getAttribute('data-leg').split('|');
+    var url = 'https://www.google.com/maps/dir/?api=1&origin=' + E(p[0]) + '&destination=' + E(p[p.length-1]) + '&travelmode=driving';
+    if(p.length > 2){ url += '&waypoints=' + E(p.slice(1,-1).join('|')); }
+    a.href = url; a.target = '_blank'; a.rel = 'noopener';
+  });
+  var KEY = 'plan_' + location.pathname;
+  function show(pl, save){
+    document.querySelectorAll('.plan-panel').forEach(function(x){ x.hidden = x.getAttribute('data-plan') !== pl; });
+    document.querySelectorAll('.ptab').forEach(function(b){ b.setAttribute('aria-selected', b.getAttribute('data-plan') === pl ? 'true' : 'false'); });
+    if(save){ try{ localStorage.setItem(KEY, pl); }catch(_){} }
+  }
+  if(document.querySelector('.ptab')){
+    var saved = null; try{ saved = localStorage.getItem(KEY); }catch(_){}
+    show(saved || document.querySelector('.ptab').getAttribute('data-plan'), false);
+    document.querySelectorAll('.ptab').forEach(function(b){ b.addEventListener('click', function(){ show(b.getAttribute('data-plan'), true); }); });
+  }
+})();
+</script>
+</body>
+</html>
