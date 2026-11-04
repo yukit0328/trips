@@ -153,7 +153,7 @@ details.cands>.grid{margin-bottom:12px}
     <li><a href="#day1"><span>2</span>DAY 1：天神・中洲</a></li>
     <li><a href="#hirao"><span>3</span>ひらおの食べ方</a></li>
     <li><a href="#yatai"><span>4</span>中洲の屋台</a></li>
-    <li><a href="#day2"><span>5</span>DAY 2：太宰府・博多</a></li>
+    <li><a href="#day2"><span>5</span>DAY 2：4案から選ぶ</a></li>
     <li><a href="#info"><span>6</span>持ち物・注意点</a></li>
   </ol>
 </nav>
@@ -188,12 +188,12 @@ details.cands>.grid{margin-bottom:12px}
 
 <h3>午後（13:15〜16:30）はプランを選ぶ</h3>
 <div class="ptabs" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin:8px 0">
-  <button type="button" class="ptab" data-plan="a" aria-selected="false">プランA<span>吹奏楽を聴く</span></button>
-  <button type="button" class="ptab" data-plan="b">プランB<span>博多の街歩き</span></button>
-  <button type="button" class="ptab" data-plan="c">プランC<span>大濠公園・紅葉</span></button>
+  <button type="button" class="ptab" data-group="d1" data-plan="a" aria-selected="false">プランA<span>吹奏楽を聴く</span></button>
+  <button type="button" class="ptab" data-group="d1" data-plan="b">プランB<span>博多の街歩き</span></button>
+  <button type="button" class="ptab" data-group="d1" data-plan="c">プランC<span>大濠公園・紅葉</span></button>
 </div>
 
-<div class="plan-panel" data-plan="a">
+<div class="plan-panel" data-group="d1" data-plan="a">
 <p>市民吹奏楽団の定期演奏会。<strong>入場無料</strong>で、予約なしで行ける見込みです。</p>
 <ul class="tl">
 <li><div class="t">13:15</div><div class="ttl">天神 → 千早へ移動（約25分）</div><div class="m">いちばん簡単なのは、地下鉄で博多駅に戻ってJR鹿児島本線で千早駅（約8分）。千早駅からすぐです。</div>
@@ -204,7 +204,7 @@ details.cands>.grid{margin-bottom:12px}
 <p class="small">情報元はコンサート情報サイトの掲載です。開場時間・入場方法は主催者の案内で確認してください。<span class="badge b-chk">要確認</span></p>
 </div>
 
-<div class="plan-panel" data-plan="b" hidden>
+<div class="plan-panel" data-group="d1" data-plan="b" hidden>
 <p>音楽なしで、博多の街をぶらぶら。夜の中洲にも近いので、そのまま屋台へ流れやすいプラン。</p>
 <ul class="tl">
 <li><div class="t">13:15</div><div class="ttl">天神 → 中洲川端へ（地下鉄で約2分、歩いても15分）</div></li>
@@ -215,7 +215,7 @@ details.cands>.grid{margin-bottom:12px}
 </ul>
 </div>
 
-<div class="plan-panel" data-plan="c" hidden>
+<div class="plan-panel" data-group="d1" data-plan="c" hidden>
 <p>音楽はなしで、のんびり過ごすプラン。</p>
 <ul class="tl">
 <li><div class="t">13:15</div><div class="ttl">地下鉄で大濠公園駅へ（天神から約5分）</div></li>
@@ -334,25 +334,76 @@ details.cands>.grid{margin-bottom:12px}
 </section>
 
 <section id="day2">
-<h2>5. DAY 2｜11月9日（月） 太宰府 → 博多駅で解散</h2>
-<div class="note"><strong>月曜は休館の施設が多い</strong>（九州国立博物館、福岡市博物館など）。下の予定は月曜でも楽しめる場所にしています。</div>
+<h2>5. DAY 2｜11月9日（月） 午前〜昼は4つの案から選ぶ → 博多駅で解散</h2>
+<div class="note"><strong>月曜は休館の施設が多い</strong>（九州国立博物館、福岡市博物館など）。下の4案はどれも月曜に行ける場所です。</div>
 <ul class="tl">
-<li><div class="t">8:30<br>〜9:30</div><div class="ttl">朝ごはん</div><div class="m">ホテルの朝食か、博多のうどん（ごぼう天うどんがおすすめ）。前夜にラーメンを食べたなら、やさしいうどんで。</div></li>
-<li><div class="t">10:00</div><div class="ttl">チェックアウト</div><div class="m">荷物はホテルに預けたまま出かけます（当日21時まで預かり可の掲載あり）。天神駅まで歩いて約15分。</div></li>
+<li><div class="t">8:30<br>〜9:30</div><div class="ttl">朝ごはん</div><div class="m">ホテルの朝食か、博多のうどん（ごぼう天うどんがおすすめ）。前夜にラーメンを食べたなら、やさしいうどんで。案1なら朝は軽めにして市場で食べる。</div></li>
+<li><div class="t">10:00</div><div class="ttl">チェックアウト</div><div class="m">荷物はホテルに預けたまま出かけます（当日21時まで預かり可の掲載あり）。</div></li>
+</ul>
+
+<h3>10:00〜14:00はプランを選ぶ</h3>
+<div class="ptabs" style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:8px 0">
+  <button type="button" class="ptab" data-group="d2" data-plan="p1" aria-selected="true">案1<span>市場とサウナ（博多ローカル）</span></button>
+  <button type="button" class="ptab" data-group="d2" data-plan="p2">案2<span>能古島（船で10分）</span></button>
+  <button type="button" class="ptab" data-group="d2" data-plan="p3">案3<span>マリンワールド海の中道</span></button>
+  <button type="button" class="ptab" data-group="d2" data-plan="p4">案4<span>太宰府天満宮</span></button>
+</div>
+
+<div class="plan-panel" data-group="d2" data-plan="p1">
+<p>移動がほぼ徒歩と地下鉄1〜2駅だけ。前夜に屋台をはしごした翌朝でも、ゆったり回れる案。</p>
+<ul class="tl">
+<li><div class="t">10:10<br>〜11:00</div><div class="ttl">柳橋連合市場で食べ歩き</div><div class="m">ホテルから歩いて10分。「博多の台所」と呼ばれる市場で、鮮魚や惣菜、だし巻き、おにぎりなどを少しずつ。月曜は営業（日曜・祝日が休み）。</div>
+  <div class="btns"><a class="btn" href="https://www.google.com/maps?cid=1475070098750848996" target="_blank" rel="noopener">📍 地図</a><a class="btn cal" data-cal='{"t":"柳橋連合市場","s":"2026-11-09T10:10","e":"2026-11-09T11:00","l":"柳橋連合市場 福岡市中央区春吉1-5","d":"食べ歩き。現金を用意"}'>📅 カレンダー</a></div></li>
+<li><div class="t">11:15<br>〜13:15</div><div class="ttl">ウェルビー福岡でサウナ</div><div class="m">祇園にある本格サウナ施設（市場から歩いて約15分、地下鉄なら中洲川端→祇園）。<strong>男性専用の施設</strong>なので、メンバーが合う場合だけ。合わなければ天神の「SHIAGARU SAUNA」か、サウナをやめて大濠公園へ。</div>
+  <div class="btns"><a class="btn" href="https://www.google.com/maps?cid=8360039251373332722" target="_blank" rel="noopener">📍 ウェルビー福岡</a><a class="btn" href="https://www.google.com/maps?cid=8314323102403395074" target="_blank" rel="noopener">📍 SHIAGARU SAUNA</a><a class="btn cal" data-cal='{"t":"ウェルビー福岡でサウナ","s":"2026-11-09T11:15","e":"2026-11-09T13:15","l":"ウェルビー福岡 福岡市博多区祇園町8-12","d":"料金・営業時間は当日確認"}'>📅 カレンダー</a></div></li>
+<li><div class="t">13:30<br>〜14:30</div><div class="ttl">博多駅周辺でランチ</div><div class="m">博多ラーメン（屋台で食べていなければ）か、もつ鍋ランチ。</div>
+  <div class="btns"><a class="btn" data-q="博多ラーメン 博多駅">🍜 博多ラーメン</a><a class="btn" data-q="もつ鍋 ランチ 博多駅">🍲 もつ鍋ランチ</a></div></li>
+</ul>
+<p class="small">ウェルビー福岡の営業時間・料金は確認できていません。<span class="badge b-chk">要確認</span></p>
+</div>
+
+<div class="plan-panel" data-group="d2" data-plan="p2" hidden>
+<p>天神から地下鉄＋船で約40分。海と花の景色で「旅に来た感」がいちばんある案。</p>
+<ul class="tl">
+<li><div class="t">10:15<br>〜11:00</div><div class="ttl">天神 → 姪浜 → 姪浜渡船場</div><div class="m">地下鉄空港線で天神から姪浜まで約15分。姪浜駅からは西鉄バスで渡船場まで約15分（歩くと約25分）。</div>
+  <div class="btns"><a class="btn" data-q="姪浜旅客待合所">📍 姪浜渡船場</a></div></li>
+<li><div class="t">11:00<br>〜11:15</div><div class="ttl">市営渡船で能古島へ（約10分）</div><div class="m">だいたい1時間に1本。時刻は当日に福岡市の渡船の案内で確認。</div>
+  <div class="btns"><a class="btn" href="https://www.city.fukuoka.lg.jp/kowan/kyakusen/life/nokonoshimakouro.html" target="_blank" rel="noopener">🚢 市営渡船の時刻表（福岡市）</a></div></li>
+<li class="key"><div class="t">11:30<br>〜13:30</div><div class="ttl">のこのしまアイランドパーク</div><div class="m">渡船場からバスで約13分。海を見下ろす花畑の公園で、10月〜11月上旬はコスモスが見頃のことが多い。園内に食事処や休憩所もある。</div>
+  <div class="btns"><a class="btn" data-q="のこのしまアイランドパーク">📍 地図</a><a class="btn" href="https://nokonoshima.com/" target="_blank" rel="noopener">🌐 公式</a><a class="btn cal" data-cal='{"t":"のこのしまアイランドパーク","s":"2026-11-09T11:30","e":"2026-11-09T13:30","l":"のこのしまアイランドパーク 福岡市西区能古島","d":"姪浜渡船場から船10分＋バス13分"}'>📅 カレンダー</a></div></li>
+<li><div class="t">13:45<br>〜14:30</div><div class="ttl">姪浜へ戻ってラーメン</div><div class="m">船で姪浜に戻り、姪浜周辺で長浜ラーメンなどのランチ。</div>
+  <div class="btns"><a class="btn" data-q="ラーメン 姪浜">🍜 姪浜のラーメン</a></div></li>
+</ul>
+<p class="small">コスモスの咲き具合と公園の入園料・営業時間は当日に公式サイトで確認してください。船の便が少ないので、帰りの便の時刻を先に決めておくのがコツ。<span class="badge b-chk">要確認</span></p>
+</div>
+
+<div class="plan-panel" data-group="d2" data-plan="p3" hidden>
+<p>イルカショーや九州の海の生き物。わかりやすく楽しい案。月曜も営業。</p>
+<ul class="tl">
+<li><div class="t">10:15<br>〜11:00</div><div class="ttl">博多駅 → 海ノ中道駅（約45分）</div><div class="m">JR鹿児島本線で香椎まで行き、香椎線に乗り換えて海ノ中道駅へ。駅から歩いてすぐ。</div></li>
+<li class="key"><div class="t">11:00<br>〜13:30</div><div class="ttl">マリンワールド海の中道</div><div class="m">玄界灘の大水槽、イルカ・アシカショー、ペンギン。館内に海を見ながら食べられるレストランもある。</div>
+  <div class="btns"><a class="btn" data-q="マリンワールド海の中道">📍 地図</a><a class="btn" href="https://marine-world.jp/" target="_blank" rel="noopener">🌐 公式</a><a class="btn cal" data-cal='{"t":"マリンワールド海の中道","s":"2026-11-09T11:00","e":"2026-11-09T13:30","l":"マリンワールド海の中道 福岡市東区西戸崎18-28","d":"JR海ノ中道駅からすぐ"}'>📅 カレンダー</a></div></li>
+<li><div class="t">13:30<br>〜14:30</div><div class="ttl">博多駅へ戻る（約45分）</div></li>
+</ul>
+<p class="small">ショーの時間と料金は公式サイトで確認してください。<span class="badge b-chk">要確認</span></p>
+</div>
+
+<div class="plan-panel" data-group="d2" data-plan="p4" hidden>
+<p>定番の太宰府。往復で1時間ほどかかるので、ゆっくりはできない案。</p>
+<ul class="tl">
 <li><div class="t">10:30<br>〜13:30</div><div class="ttl">太宰府天満宮</div><div class="m">西鉄 天神駅から太宰府駅まで約30分（二日市で乗り換え）。参道の<strong>梅ヶ枝餅</strong>の食べ比べ、参拝、隈研吾デザインのスターバックス。</div>
-  <div class="bl">学問の神様・菅原道真をまつる神社。参道は梅ヶ枝餅の店が並ぶ</div><a class="pstrip" href="https://www.google.com/maps?cid=13268960937318002327" target="_blank" rel="noopener"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QNZRCfGlTWrth1q-2hQod-KjSd7exvPkbpeMXp9dLH1r-9fn1ZriYkG6KwSVHC4aAaZ-a713S9GSyq2_mPU_X7C6R34LAizUXZvpHOJ4geM7Qm_anzzowkVl1PDy2Ab4KSqTJfVA=w640-h420-k-no" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('nop')"><span class="cap">太宰府天満宮（Googleマップの写真）</span></a><div class="btns"><a class="btn" data-q="太宰府天満宮">📍 地図</a><a class="btn" href="https://www.dazaifutenmangu.or.jp/" target="_blank" rel="noopener">🌐 公式</a><a class="btn" href="https://www.google.com/maps?cid=8527849138083372303" target="_blank" rel="noopener">📷 隈研吾のスタバ</a><a class="btn" href="https://www.google.com/maps?cid=16637148433084021916" target="_blank" rel="noopener">📷 かさの家（梅ヶ枝餅）</a><a class="btn cal" data-cal='{"t":"太宰府天満宮","s":"2026-11-09T10:30","e":"2026-11-09T13:30","l":"太宰府天満宮","d":"西鉄で天神から約30分。梅ヶ枝餅"}'>📅 カレンダー</a></div></li>
-<li><div class="t">13:45<br>〜14:15</div><div class="ttl">ホテルで荷物を受け取る</div><div class="m">西鉄で天神に戻り、ホテルへ。渡辺通駅から七隈線で博多駅へ（約5分）。</div></li>
-<li><div class="t">14:30<br>〜16:30</div><div class="ttl">博多駅で遅めのお昼とお土産</div><div class="m">博多ラーメン（屋台で食べていなければ）、もつ鍋ランチなど。お土産は駅ビルで明太子・めんべい・博多通りもん。</div>
-  <div class="bl">博多駅のお土産街。明太子・めんべい・通りもん</div><div class="btns"><a class="btn" data-q="博多駅 マイング">📍 博多駅のお土産売り場</a></div></li>
+  <div class="btns"><a class="btn" data-q="太宰府天満宮">📍 地図</a><a class="btn" href="https://www.dazaifutenmangu.or.jp/" target="_blank" rel="noopener">🌐 公式</a><a class="btn" href="https://www.google.com/maps?cid=8527849138083372303" target="_blank" rel="noopener">📷 隈研吾のスタバ</a><a class="btn" href="https://www.google.com/maps?cid=16637148433084021916" target="_blank" rel="noopener">📷 かさの家（梅ヶ枝餅）</a><a class="btn cal" data-cal='{"t":"太宰府天満宮","s":"2026-11-09T10:30","e":"2026-11-09T13:30","l":"太宰府天満宮","d":"西鉄で天神から約30分。梅ヶ枝餅"}'>📅 カレンダー</a></div></li>
+<li><div class="t">13:45<br>〜14:30</div><div class="ttl">西鉄で天神に戻る → 博多駅周辺でランチ</div></li>
+</ul>
+</div>
+
+<ul class="tl">
+<li><div class="t">14:30<br>〜15:00</div><div class="ttl">ホテルで荷物を受け取る</div><div class="m">渡辺通駅から七隈線で博多駅へ（約5分）。</div></li>
+<li><div class="t">15:00<br>〜16:30</div><div class="ttl">博多駅でお土産</div><div class="m">駅ビルで明太子・めんべい・博多通りもん。時間が余ればコーヒーでひと休み。</div>
+  <div class="btns"><a class="btn" data-q="博多駅 マイング">📍 博多駅のお土産売り場</a></div></li>
 <li class="key"><div class="t">16:30</div><div class="ttl">博多駅で解散</div><div class="m">空港へは地下鉄で博多駅から2駅（約5分）。</div>
   <div class="btns"><a class="btn cal" data-cal='{"t":"博多駅で解散","s":"2026-11-09T16:30","e":"2026-11-09T16:45","l":"博多駅","d":"福岡空港へは地下鉄で約5分"}'>📅 カレンダー</a></div></li>
 </ul>
-<details class="cands"><summary><span class="sum-t">太宰府の代わりの候補</span><span class="sum-h">タップで開く</span></summary>
-<ul>
-<li><strong>櫛田神社と川端商店街</strong>：博多の総鎮守。博多祇園山笠の飾り山が通年展示。中洲から歩いて行ける。</li>
-<li><strong>ひらおにもう一度</strong>：別の定食を試すのもあり（10:30開店）。</li>
-<li><strong>楽器店めぐり</strong>：天神・博多には大型の楽器店があり、管楽器のフロアを見て回るのも吹奏楽経験者には楽しい。</li>
-</ul></details>
 </section>
 
 <section id="info">
@@ -402,17 +453,19 @@ details.cands>.grid{margin-bottom:12px}
     if(p.length > 2){ url += '&waypoints=' + E(p.slice(1,-1).join('|')); }
     a.href = url; a.target = '_blank'; a.rel = 'noopener';
   });
-  var KEY = 'plan_' + location.pathname;
-  function show(pl, save){
-    document.querySelectorAll('.plan-panel').forEach(function(x){ x.hidden = x.getAttribute('data-plan') !== pl; });
-    document.querySelectorAll('.ptab').forEach(function(b){ b.setAttribute('aria-selected', b.getAttribute('data-plan') === pl ? 'true' : 'false'); });
-    if(save){ try{ localStorage.setItem(KEY, pl); }catch(_){} }
+  function show(g, pl, save){
+    document.querySelectorAll('.plan-panel[data-group="' + g + '"]').forEach(function(x){ x.hidden = x.getAttribute('data-plan') !== pl; });
+    document.querySelectorAll('.ptab[data-group="' + g + '"]').forEach(function(b){ b.setAttribute('aria-selected', b.getAttribute('data-plan') === pl ? 'true' : 'false'); });
+    if(save){ try{ localStorage.setItem('plan_' + g + '_' + location.pathname, pl); }catch(_){} }
   }
-  if(document.querySelector('.ptab')){
-    var saved = null; try{ saved = localStorage.getItem(KEY); }catch(_){}
-    show(saved || document.querySelector('.ptab').getAttribute('data-plan'), false);
-    document.querySelectorAll('.ptab').forEach(function(b){ b.addEventListener('click', function(){ show(b.getAttribute('data-plan'), true); }); });
-  }
+  var groups = {};
+  document.querySelectorAll('.ptab').forEach(function(b){ groups[b.getAttribute('data-group')] = true; });
+  Object.keys(groups).forEach(function(g){
+    var saved = null; try{ saved = localStorage.getItem('plan_' + g + '_' + location.pathname); }catch(_){}
+    var first = document.querySelector('.ptab[data-group="' + g + '"]');
+    show(g, saved || first.getAttribute('data-plan'), false);
+    document.querySelectorAll('.ptab[data-group="' + g + '"]').forEach(function(b){ b.addEventListener('click', function(){ show(g, b.getAttribute('data-plan'), true); }); });
+  });
 })();
 </script>
 </body>
